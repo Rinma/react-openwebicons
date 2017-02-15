@@ -18,7 +18,7 @@ export default class OpenWebIcon extends React.Component<OpenWebIconProps, {}> {
             color: this.props.color ? this.props.color : "#000000",
         };
         return <span>
-            <i style={style} className={this.props.icon} />
+            <i style={style} className={this.props.icon}/>
         </span>;
     }
 }
