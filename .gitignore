@@ -36,3 +36,4 @@ fabric.properties
 
 *.js
 *.map
+*/@types/*.d.ts
