@@ -1,9 +1,10 @@
 import * as React from "react";
+import CSSProperties = React.CSSProperties;
 
 export interface OpenWebIconProps {
-    icon: string;
+    name: string;
     size?: string;
-    color?: string;
+    colored?: string | boolean;
 }
 
 export default class OpenWebIcon extends React.Component<OpenWebIconProps, {}> {
@@ -12,13 +13,20 @@ export default class OpenWebIcon extends React.Component<OpenWebIconProps, {}> {
     }
 
     render() {
-        let style = {
+        let className = this.props.name;
+        let style: CSSProperties = {
             fontFamily: "OpenWeb Icons",
-            fontSize: this.props.size ? this.props.size : "16px",
-            color: this.props.color ? this.props.color : "#000000",
+            fontSize: this.props.size ? this.props.size : "16px"
         };
+
+        if (this.props.colored === true) {
+            className = className + "-colored"
+        } else {
+            style.color = this.props.colored != "" ? this.props.colored : "#000000"
+        }
+
         return <span>
-            <i style={style} className={this.props.icon}/>
+            <i style={style} className={className}/>
         </span>;
     }
 }
